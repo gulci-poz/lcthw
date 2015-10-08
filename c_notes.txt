@@ -1,0 +1,52 @@
+su -c "dnf groupinstall development-tools"
+lub
+sudo su dnf groupinstall development-tools
+
+make ex1
+
+man 3 puts
+man make
+man cc
+
+rm ex1
+CFLAGS="-Wall" make ex1
+u mnie to jest domyślnie
+Warning all (nie są to wszystkie możliwe ostrzeżenia)
+
+jest to zmienna środowiskowa
+można ją ustawić na stałe (tak jest u mnie)
+export CFLAGS="-Wall"
+jeśli używamy tej zmiennej z make, to istnieje ona tylko w trakcie działania make
+-Wall jest dla komendy cc
+
+w Makefile używamy tylko tabów (nie mieszanki spacji i tabów)
+flaga -g dla debuggowania
+make clean
+make ex1
+
+jeśli dodamy all: ex1
+to wystarczy tylko komenda make
+
+instalacja valgrind:
+# 1) Download it (use wget if you don't have curl)
+curl -O http://valgrind.org/downloads/valgrind-3.6.1.tar.bz2
+# use md5sum to make sure it matches the one on the site
+md5sum valgrind-3.6.1.tar.bz2
+# 2) Unpack it.
+tar -xjvf valgrind-3.6.1.tar.bz2
+# cd into the newly created directory
+cd valgrind-3.6.1
+# 3) configure it
+./configure
+# 4) make it
+make
+# 5) install it (need root)
+sudo make install
+
+instaluję skompilowaną wersję z repo
+nie idzie skompilować dla jądra > 2.6
+valgrind ./ex2
+
+valgrind --track-origins=yes ./ex2
+w razie błędu
+by 0x4052112: (below main) (libc-start.c:226)
